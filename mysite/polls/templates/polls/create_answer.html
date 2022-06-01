@@ -1,0 +1,10 @@
+<h1>{{ question.question_text }}</h1>
+
+{% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:create_answer' question.id%}" method="post">
+{% csrf_token %}
+  <label for="new_answer">Enter an answer</label><br>
+  <input type="text" name="new_answer" id="new_answer"><br><br>
+<input type="submit" value="Add">
+</form>
